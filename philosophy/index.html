@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Philosophy Hub</div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search philosophers, quotes...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#philosophers">Philosophers</a></li>
+                <li><a href="#quotes">Quotes</a></li>
+                <li><a href="#experiments">Experiments</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="dark-mode-toggle" class="dark-mode-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Explore the Depths of Philosophy</h1>
+            <p>"The unexamined life is not worth living." - Socrates</p>
+            <button class="cta-button" onclick="generateQuote()">Get Inspired</button>
+        </div>
+        <canvas id="philosophy-canvas"></canvas>
+    </section>
+
+    <section id="branches" class="branches">
+        <h2>Branches of Philosophy</h2>
+        <div class="branch-grid">
+            <div class="branch-card" onclick="showBranch('metaphysics')">
+                <h3>Metaphysics</h3>
+                <p>The study of the fundamental nature of reality.</p>
+            </div>
+            <div class="branch-card" onclick="showBranch('epistemology')">
+                <h3>Epistemology</h3>
+                <p>The study of knowledge and belief.</p>
+            </div>
+            <div class="branch-card" onclick="showBranch('ethics')">
+                <h3>Ethics</h3>
+                <p>The study of moral principles and values.</p>
+            </div>
+            <div class="branch-card" onclick="showBranch('logic')">
+                <h3>Logic</h3>
+                <p>The study of reasoning and argumentation.</p>
+            </div>
+            <div class="branch-card" onclick="showBranch('aesthetics')">
+                <h3>Aesthetics</h3>
+                <p>The study of beauty and art.</p>
+            </div>
+            <div class="branch-card" onclick="showBranch('political')">
+                <h3>Political Philosophy</h3>
+                <p>The study of government and society.</p>
+            </div>
+        </div>
+        <div id="branch-detail" class="branch-detail hidden">
+            <h3 id="branch-title"></h3>
+            <p id="branch-description"></p>
+        </div>
+    </section>
+
+    <section id="philosophers" class="philosophers">
+        <h2>Famous Philosophers</h2>
+        <div class="philosopher-slider">
+            <div class="philosopher-card" data-name="socrates">
+                <div class="philosopher-icon"><i class="fas fa-user-circle"></i></div>
+                <h3>Socrates</h3>
+                <p>Ancient Greek philosopher known for his method of questioning.</p>
+                <button onclick="showPhilosopherDetail('socrates')">Learn More</button>
+            </div>
+            <div class="philosopher-card" data-name="plato">
+                <div class="philosopher-icon"><i class="fas fa-brain"></i></div>
+                <h3>Plato</h3>
+                <p>Student of Socrates, founder of the Academy in Athens.</p>
+                <button onclick="showPhilosopherDetail('plato')">Learn More</button>
+            </div>
+            <div class="philosopher-card" data-name="aristotle">
+                <div class="philosopher-icon"><i class="fas fa-atom"></i></div>
+                <h3>Aristotle</h3>
+                <p>Student of Plato, tutor to Alexander the Great.</p>
+                <button onclick="showPhilosopherDetail('aristotle')">Learn More</button>
+            </div>
+            <div class="philosopher-card" data-name="descartes">
+                <div class="philosopher-icon"><i class="fas fa-cogs"></i></div>
+                <h3>René Descartes</h3>
+                <p>French philosopher, mathematician, "I think, therefore I am."</p>
+                <button onclick="showPhilosopherDetail('descartes')">Learn More</button>
+            </div>
+            <div class="philosopher-card" data-name="kant">
+                <div class="philosopher-icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>Immanuel Kant</h3>
+                <p>German philosopher, author of Critique of Pure Reason.</p>
+                <button onclick="showPhilosopherDetail('kant')">Learn More</button>
+            </div>
+            <div class="philosopher-card" data-name="nietzsche">
+                <div class="philosopher-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Friedrich Nietzsche</h3>
+                <p>German philosopher, known for "God is dead" and Übermensch.</p>
+                <button onclick="showPhilosopherDetail('nietzsche')">Learn More</button>
+            </div>
+        </div>
+        <div id="philosopher-detail" class="philosopher-detail hidden">
+            <h3 id="philosopher-title"></h3>
+            <p id="philosopher-description"></p>
+        </div>
+    </section>
+
+    <section id="quotes" class="quotes">
+        <h2>Philosophical Quotes</h2>
+        <div class="quote-container">
+            <blockquote id="quote-text">"The only true wisdom is in knowing you know nothing." - Socrates</blockquote>
+            <button class="new-quote-btn" onclick="generateQuote()">New Quote</button>
+        </div>
+    </section>
+
+    <section id="experiments" class="experiments">
+        <h2>Thought Experiments</h2>
+        <div class="experiment-grid">
+            <div class="experiment-card">
+                <h3>Trolley Problem</h3>
+                <p>A classic ethical dilemma involving a runaway trolley.</p>
+                <button onclick="startExperiment('trolley')">Explore</button>
+            </div>
+            <div class="experiment-card">
+                <h3>Schrödinger's Cat</h3>
+                <p>A thought experiment about quantum superposition.</p>
+                <button onclick="startExperiment('schrodinger')">Explore</button>
+            </div>
+            <div class="experiment-card">
+                <h3>Brain in a Vat</h3>
+                <p>Questions the nature of reality and perception.</p>
+                <button onclick="startExperiment('brain')">Explore</button>
+            </div>
+        </div>
+        <div id="experiment-detail" class="experiment-detail hidden">
+            <h3 id="experiment-title"></h3>
+            <p id="experiment-description"></p>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz">
+        <h2>Philosophy Quiz</h2>
+        <div class="quiz-container">
+            <div id="quiz-question">
+                <h3 id="question-text">What is the study of knowledge called?</h3>
+                <div class="options">
+                    <button class="option-btn" onclick="checkAnswer(0)">Epistemology</button>
+                    <button class="option-btn" onclick="checkAnswer(1)">Metaphysics</button>
+                    <button class="option-btn" onclick="checkAnswer(2)">Ethics</button>
+                    <button class="option-btn" onclick="checkAnswer(3)">Logic</button>
+                </div>
+            </div>
+            <div id="quiz-result" class="hidden">
+                <h3 id="result-text"></h3>
+                <p id="result-explanation"></p>
+                <button onclick="nextQuestion()" id="next-btn">Next Question</button>
+                <button onclick="restartQuiz()" id="restart-btn">Restart Quiz</button>
+            </div>
+            <div class="quiz-progress">
+                <span id="current-question">1</span> / <span id="total-questions">10</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><i class="fas fa-envelope"></i> info@philosophyhub.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> Athens, Greece</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Philosophy Hub. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

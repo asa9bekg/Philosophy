@@ -1,0 +1,764 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+.dark-mode header {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #667eea;
+    transition: color 0.3s;
+}
+
+.dark-mode .logo {
+    color: #a855f7;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    transition: background 0.3s;
+}
+
+.dark-mode .search-container {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#search-input {
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    outline: none;
+    flex: 1;
+    color: #333;
+}
+
+.dark-mode #search-input {
+    color: white;
+}
+
+#search-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.dark-mode #search-btn {
+    color: #a855f7;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.dark-mode .nav-links a {
+    color: white;
+}
+
+.nav-links a:hover {
+    color: #667eea;
+}
+
+.dark-mode .nav-links a:hover {
+    color: #a855f7;
+}
+
+.dark-mode-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: color 0.3s;
+}
+
+.dark-mode .dark-mode-btn {
+    color: #a855f7;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.dark-mode .hamburger span {
+    background: white;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#philosophy-canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Sections */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+/* Branches */
+.branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.branch-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.branch-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.branch-card h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.branch-detail {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Philosophers */
+.philosopher-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.philosopher-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.philosopher-card {
+    flex: 0 0 250px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    padding: 1rem;
+}
+
+.dark-mode .philosopher-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.philosopher-card:hover {
+    transform: translateY(-5px);
+}
+
+.philosopher-icon {
+    font-size: 4rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.dark-mode .philosopher-icon {
+    color: #a855f7;
+}
+
+.philosopher-card h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.dark-mode .philosopher-card h3 {
+    color: #a855f7;
+}
+
+.philosopher-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.philosopher-card button {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.philosopher-card button:hover {
+    transform: scale(1.05);
+}
+
+/* Quotes */
+.quote-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#quote-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.new-quote-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.new-quote-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Experiments */
+.experiment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.experiment-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.experiment-card h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.experiment-card button {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-top: 1rem;
+}
+
+.experiment-card button:hover {
+    transform: scale(1.05);
+}
+
+.experiment-detail {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #philosophy-canvas {
+        position: static;
+        width: 100%;
+        height: 300px;
+        margin-top: 2rem;
+    }
+
+    .branch-grid, .experiment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .philosopher-slider {
+        flex-direction: column;
+    }
+
+    .philosopher-card {
+        flex: none;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeIn 1s ease-out;
+}
+
+.branch-card, .philosopher-card, .experiment-card {
+    animation: fadeIn 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.branch-card:nth-child(1) { animation-delay: 0.1s; }
+.branch-card:nth-child(2) { animation-delay: 0.2s; }
+.branch-card:nth-child(3) { animation-delay: 0.3s; }
+.branch-card:nth-child(4) { animation-delay: 0.4s; }
+.branch-card:nth-child(5) { animation-delay: 0.5s; }
+.branch-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Philosopher Detail */
+.philosopher-detail {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.dark-mode .philosopher-detail {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Quiz Section */
+.quiz-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.dark-mode .quiz-container {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+#quiz-question h3 {
+    margin-bottom: 2rem;
+    color: #667eea;
+}
+
+.dark-mode #quiz-question h3 {
+    color: #a855f7;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #667eea;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.dark-mode .option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #a855f7;
+    color: white;
+}
+
+.option-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.dark-mode .option-btn:hover {
+    background: #a855f7;
+}
+
+#quiz-result h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.dark-mode #quiz-result h3 {
+    color: #a855f7;
+}
+
+.quiz-progress {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.dark-mode .quiz-progress {
+    color: #a855f7;
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .contact-container {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #667eea;
+}
+
+.dark-mode .form-group label {
+    color: #a855f7;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.dark-mode .form-group input:focus,
+.dark-mode .form-group textarea:focus {
+    border-color: #a855f7;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+}
+
+.contact-info h3 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+}
+
+.dark-mode .contact-info h3 {
+    color: #a855f7;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 0.5rem;
+    color: #667eea;
+}
+
+.dark-mode .contact-info i {
+    color: #a855f7;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    color: #667eea;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.dark-mode .social-link {
+    color: #a855f7;
+}
+
+.social-link:hover {
+    color: #764ba2;
+}
+
+.dark-mode .social-link:hover {
+    color: #c084fc;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+}
+
+.dark-mode body {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.dark-mode .hero h1,
+.dark-mode .hero p {
+    color: white;
+}
+
+.dark-mode .branch-card,
+.dark-mode .quote-container,
+.dark-mode .experiment-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.dark-mode .branch-card h3,
+.dark-mode .experiment-card h3 {
+    color: #a855f7;
+}
+
+.dark-mode #quote-text {
+    color: white;
+}
+
+.dark-mode footer {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Loading Animation */
+.loading {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.5s forwards;
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 768px) {
+    .search-container {
+        display: none;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+}
